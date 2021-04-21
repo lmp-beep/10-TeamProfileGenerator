@@ -9,14 +9,24 @@ const Employee = require("./lib/employee.js");
 const Manager = require("./lib/manager.js");
 const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
-// const generateHTML = require("./lib/generateHTML.js");
+
+
+// const startHTML = require('./lib/generateHTML.js');
+// const addEmployee = require("./lib/generateHTML.js");
+// const endHTML = require("./lib/generateHTML.js");
 
 // Path
-const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+// const DIST_DIR = path.resolve(__dirname, "dist");
+// const distPath = path.join(dist_DIR, "MyTeam.html");
 
 
 let employeeArray = [];
+
+// function letsStart() {
+//     startHTML();
+//     promptQuestions();
+    
+// }
 
 const promptQuestions = () => {
     inquirer.prompt([
@@ -51,6 +61,7 @@ const promptQuestions = () => {
         const manager = new Manager(answer.nameManager, answer.idManager, answer.emailManager, answer.officeNumberManager);
         const employee = new Employee();
         employeeArray.push(manager);
+        // addEmployee();
         
         if (answer.addEmployee === 'Engineer') {
             engineerQuestions();
@@ -58,9 +69,10 @@ const promptQuestions = () => {
             internQuestions();
         } else {
             console.log(employeeArray);
+            endHTML();
 
             // let generateTeam = generateHTML(employeeArray);
-            // fs.writeFile(outputPath, generateTeam, (err) =>
+            // fs.writeFile(distPath, generateTeam, (err) =>
             // err ? console.error(err) : console.log("Success!!")
             // )
 
@@ -69,7 +81,7 @@ const promptQuestions = () => {
     })
 };
 
-promptQuestions();
+
 
 const engineerQuestions = () => {
     inquirer.prompt([
@@ -103,6 +115,7 @@ const engineerQuestions = () => {
     .then(answer => {
         const engineer = new Engineer(answer.nameEngineer, answer.idEngineer, answer.emailEngineer, answer.githubEngineer);
         employeeArray.push(engineer);
+        // addEmployee();
 
         if (answer.addEmployee === 'Engineer') {
             engineerQuestions();
@@ -110,9 +123,10 @@ const engineerQuestions = () => {
             internQuestions();
         } else {
             console.log(employeeArray);
+            endHTML();
 
             // let generateTeam = generateHTML(employeeArray);
-            // fs.writeFile(outputPath, generateTeam, (err) =>
+            // fs.writeFile(distPath, generateTeam, (err) =>
             // err ? console.error(err) : console.log("Success!!")
             // )
             
@@ -153,6 +167,7 @@ const internQuestions = () => {
     .then(answer => {
         const intern = new Intern(answer.nameIntern, answer.idIntern, answer.emailIntern, answer.schoolIntern);
         employeeArray.push(intern);
+        // addEmployee();
 
         if (answer.addEmployee === 'Engineer') {
             engineerQuestions();
@@ -160,9 +175,10 @@ const internQuestions = () => {
             internQuestions();
         } else {
             console.log(employeeArray);
+            endHTML();
 
             // let generateTeam = generateHTML(employeeArray);
-            // fs.writeFile(outputPath, generateTeam, (err) =>
+            // fs.writeFile(distPath, generateTeam, (err) =>
             // err ? console.error(err) : console.log("Success!!")
             // )
             
@@ -172,4 +188,59 @@ const internQuestions = () => {
 };
 
 
+    startHTML();
+    promptQuestions();
 
+
+// ----------------------------Functions to build HTML-----------------------------
+    function startHTML() {
+        const newHTML = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Team Profiles</title>
+    
+            <!-- bootstrap cdn -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    
+            <!-- google fonts -->
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+    
+            <!-- custom css -->
+            <link rel="stylesheet" href="../assets/style.css"/>
+        </head>
+        <body>
+            <div class="container px-4" style="padding: 100px;">
+                <div class="row py-4">
+                
+                `;
+    
+        fs.writeFile ("./dist/MyTeam.html", newHTML, function(err) {
+            err ? console.error(err) : console.log("Your team profile is being generated!")
+        });
+    };
+    
+    
+    
+    // function addEmployee() {
+    
+    // };
+    
+    
+    
+    function endHTML() {
+        const bottomHTML = `
+
+                </div>
+            </div>
+        </body>
+        </html>`;
+    
+        fs.appendFile("./dist/MyTeam.html", bottomHTML, function(err) {
+            err ? console.error(err) : console.log("Your Team Profile is Ready!!!")
+        });
+    };
