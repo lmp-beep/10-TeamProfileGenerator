@@ -1,0 +1,67 @@
+
+body {
+    background: url(./techno-background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.card {
+    border: white solid 3px;
+    background: transparent !important;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+.list-group-item {
+    background: transparent !important;
+}
+
+#name-manager {
+    text-align: center;
+    font-size: 36px;
+}
+
+#role-manager {
+    text-align: center;
+    font-size: 28px;
+}
+
+#name-engineer {
+    text-align: center;
+    font-size: 36px;
+}
+
+#role-engineer {
+    text-align: center;
+    font-size: 28px;
+}
+
+#name-intern {
+    text-align: center;
+    font-size: 36px;
+}
+
+#role-intern {
+    text-align: center;
+    font-size: 28px;
+}
+
+#manager-icon {
+    height: 70px;
+    width: 70px;
+    padding: 10px;
+}
+
+#engineer-icon {
+    height: 70px;
+    width: 70px;
+    padding: 10px;
+}
+
+#intern-icon {
+    height: 70px;
+    width: 70px;
+    padding: 10px;
+}

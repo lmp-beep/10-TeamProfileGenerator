@@ -2,13 +2,18 @@
 //Included packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const path = require('path');
 
-
+// Imported 
 const Employee = require("./lib/employee.js");
 const Manager = require("./lib/manager.js");
 const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
-// const generateHTML = require("./utils/generateHTML.js");
+// const generateHTML = require("./lib/generateHTML.js");
+
+// Path
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 
 let employeeArray = [];
@@ -43,7 +48,8 @@ const promptQuestions = () => {
         },
     ])
     .then(answer => {
-        const manager = new Manager(answer.nameManager, answer.idManager, answer.emailManager, answer.officeNumberManager,);
+        const manager = new Manager(answer.nameManager, answer.idManager, answer.emailManager, answer.officeNumberManager);
+        const employee = new Employee();
         employeeArray.push(manager);
         
         if (answer.addEmployee === 'Engineer') {
@@ -51,8 +57,13 @@ const promptQuestions = () => {
         } else if (answer.addEmployee === 'Intern') {
             internQuestions();
         } else {
-            console.log('Game Over');
             console.log(employeeArray);
+
+            // let generateTeam = generateHTML(employeeArray);
+            // fs.writeFile(outputPath, generateTeam, (err) =>
+            // err ? console.error(err) : console.log("Success!!")
+            // )
+
             return;
         }
     })
@@ -98,8 +109,13 @@ const engineerQuestions = () => {
         } else if (answer.addEmployee === 'Intern') {
             internQuestions();
         } else {
-            console.log('Game Over');
             console.log(employeeArray);
+
+            // let generateTeam = generateHTML(employeeArray);
+            // fs.writeFile(outputPath, generateTeam, (err) =>
+            // err ? console.error(err) : console.log("Success!!")
+            // )
+            
             return;
         }
     })
@@ -143,10 +159,17 @@ const internQuestions = () => {
         } else if (answer.addEmployee === 'Intern') {
             internQuestions();
         } else {
-            console.log('Game Over');
             console.log(employeeArray);
+
+            // let generateTeam = generateHTML(employeeArray);
+            // fs.writeFile(outputPath, generateTeam, (err) =>
+            // err ? console.error(err) : console.log("Success!!")
+            // )
+            
             return;
         }
     })
 };
+
+
 
