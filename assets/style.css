@@ -18,50 +18,19 @@ body {
     background: transparent !important;
 }
 
-#name-manager {
+#name {
     text-align: center;
     font-size: 36px;
 }
 
-#role-manager {
+#role {
     text-align: center;
     font-size: 28px;
 }
 
-#name-engineer {
-    text-align: center;
-    font-size: 36px;
-}
-
-#role-engineer {
-    text-align: center;
-    font-size: 28px;
-}
-
-#name-intern {
-    text-align: center;
-    font-size: 36px;
-}
-
-#role-intern {
-    text-align: center;
-    font-size: 28px;
-}
-
-#manager-icon {
+#icon {
     height: 70px;
     width: 70px;
     padding: 10px;
 }
 
-#engineer-icon {
-    height: 70px;
-    width: 70px;
-    padding: 10px;
-}
-
-#intern-icon {
-    height: 70px;
-    width: 70px;
-    padding: 10px;
-}

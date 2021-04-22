@@ -2,7 +2,6 @@
 //Included packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const path = require('path');
 
 // Imported 
 const Employee = require("./lib/employee.js");
@@ -11,44 +10,30 @@ const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
 
 
-// const startHTML = require('./lib/generateHTML.js');
-// const addEmployee = require("./lib/generateHTML.js");
-// const endHTML = require("./lib/generateHTML.js");
-
-// Path
-// const DIST_DIR = path.resolve(__dirname, "dist");
-// const distPath = path.join(dist_DIR, "MyTeam.html");
-
 
 let employeeArray = [];
-
-// function letsStart() {
-//     startHTML();
-//     promptQuestions();
-    
-// }
 
 const promptQuestions = () => {
     inquirer.prompt([
         {
             type: 'input',
             message: "What is the team manager's name?",
-            name: 'nameManager',
+            name: 'name',
         },
         {
             type: 'input',
             message: "What is the team manager's employee ID?",
-            name: 'idManager',
+            name: 'id',
         },
         {
             type: 'input',
             message: "What is the team manager's email address?",
-            name: 'emailManager',
+            name: 'email',
         },
         {
             type: 'input',
             message: "What is the team manager's office number?",
-            name: 'officeNumberManager',
+            name: 'officeNumber',
         },
         {
             type: 'list',
@@ -58,10 +43,8 @@ const promptQuestions = () => {
         },
     ])
     .then(answer => {
-        const manager = new Manager(answer.nameManager, answer.idManager, answer.emailManager, answer.officeNumberManager);
-        const employee = new Employee();
+        const manager = new Manager(answer.name, answer.id, answer.email, answer.officeNumber);
         employeeArray.push(manager);
-        // addEmployee();
         
         if (answer.addEmployee === 'Engineer') {
             engineerQuestions();
@@ -69,12 +52,7 @@ const promptQuestions = () => {
             internQuestions();
         } else {
             console.log(employeeArray);
-            endHTML();
-
-            // let generateTeam = generateHTML(employeeArray);
-            // fs.writeFile(distPath, generateTeam, (err) =>
-            // err ? console.error(err) : console.log("Success!!")
-            // )
+            generateHTML();
 
             return;
         }
@@ -88,22 +66,22 @@ const engineerQuestions = () => {
         {
             type: 'input',
             message: "What is the engineer's name?",
-            name: 'nameEngineer',
+            name: 'name',
         },
         {
             type: 'input',
             message: "What is the engineer's employee ID?",
-            name: 'idEngineer',
+            name: 'id',
         },
         {
             type: 'input',
             message: "What is the engineer's email address?",
-            name: 'emailEngineer',
+            name: 'email',
         },
         {
             type: 'input',
             message: "What is the engineer's GitHub username?",
-            name: 'githubEngineer',
+            name: 'github',
         },
         {
             type: 'list',
@@ -113,23 +91,17 @@ const engineerQuestions = () => {
         },
     ])
     .then(answer => {
-        const engineer = new Engineer(answer.nameEngineer, answer.idEngineer, answer.emailEngineer, answer.githubEngineer);
+        const engineer = new Engineer(answer.name, answer.id, answer.email, answer.github);
         employeeArray.push(engineer);
-        // addEmployee();
-
+    
         if (answer.addEmployee === 'Engineer') {
             engineerQuestions();
         } else if (answer.addEmployee === 'Intern') {
             internQuestions();
         } else {
             console.log(employeeArray);
-            endHTML();
-
-            // let generateTeam = generateHTML(employeeArray);
-            // fs.writeFile(distPath, generateTeam, (err) =>
-            // err ? console.error(err) : console.log("Success!!")
-            // )
-            
+            generateHTML();
+          
             return;
         }
     })
@@ -140,22 +112,22 @@ const internQuestions = () => {
         {
             type: 'input',
             message: "What is the intern's name?",
-            name: 'nameIntern',
+            name: 'name',
         },
         {
             type: 'input',
             message: "What is the intern's employee ID?",
-            name: 'idIntern',
+            name: 'id',
         },
         {
             type: 'input',
             message: "What is the intern's email address?",
-            name: 'emailIntern',
+            name: 'email',
         },
         {
             type: 'input',
             message: "What is the intern's school?",
-            name: 'schoolIntern',
+            name: 'school',
         },
         {
             type: 'list',
@@ -165,22 +137,16 @@ const internQuestions = () => {
         },
     ])
     .then(answer => {
-        const intern = new Intern(answer.nameIntern, answer.idIntern, answer.emailIntern, answer.schoolIntern);
+        const intern = new Intern(answer.name, answer.id, answer.email, answer.school);
         employeeArray.push(intern);
-        // addEmployee();
-
+        
         if (answer.addEmployee === 'Engineer') {
             engineerQuestions();
         } else if (answer.addEmployee === 'Intern') {
             internQuestions();
         } else {
             console.log(employeeArray);
-            endHTML();
-
-            // let generateTeam = generateHTML(employeeArray);
-            // fs.writeFile(distPath, generateTeam, (err) =>
-            // err ? console.error(err) : console.log("Success!!")
-            // )
+            generateHTML();
             
             return;
         }
@@ -188,12 +154,14 @@ const internQuestions = () => {
 };
 
 
-    startHTML();
-    promptQuestions();
+promptQuestions();
 
 
 // ----------------------------Functions to build HTML-----------------------------
-    function startHTML() {
+
+    function generateHTML() {
+
+        const htmlArray = []
         const newHTML = `
         <!DOCTYPE html>
         <html lang="en">
@@ -216,31 +184,56 @@ const internQuestions = () => {
         <body>
             <div class="container px-4" style="padding: 100px;">
                 <div class="row py-4">
+                `
+                htmlArray.push(newHTML);
+
+                for (let i = 0; i < employeeArray.length; i++) {
+                    let object = `
+                    <div class="col-4 py-4">
+                        <div class="card">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" id="name">${employeeArray[i].name}</li>
+                                <li class="list-group-item" id="role">${employeeArray[i].role}</li>
+                                <li class="list-group-item" id="id">EMPLOYEE ID: ${employeeArray[i].id}</li>
+                                <li class="list-group-item" id="email">EMAIL: ${employeeArray[i].email}</li>
+                    `
+
+                    if (employeeArray[i].officeNumber) {
+                        object += `
+                        <li class="list-group-item" id="office-number">OFFICE NUMBER: ${employeeArray[i].officeNumber}</li>
+                        `
+                    } 
+                    if (employeeArray[i].github) {
+                        object += `
+                        <li class="list-group-item" id="github">GITHUB USERNAME: ${employeeArray[i].github}</li>
+                        `
+                    } 
+                    if (employeeArray[i].school) {
+                        object += `
+                        <li class="list-group-item" id="school">SCHOOL: ${employeeArray[i].school}</li>
+                        `
+                    }
+
+                    object += `
+                        </ul>
+                        </div>
+                        </div>
+                        `
+                    htmlArray.push(object)
+                }
+
+                const htmlBottom = `
+                        </div>
+                        </div>
+                        </body>
+                        </html>
+                        `
+                    htmlArray.push(htmlBottom);
                 
-                `;
-    
-        fs.writeFile ("./dist/MyTeam.html", newHTML, function(err) {
+
+        fs.writeFile ("./dist/MyTeam.html", htmlArray.join(""), function(err) {
             err ? console.error(err) : console.log("Your team profile is being generated!")
         });
     };
     
     
-    
-    // function addEmployee() {
-    
-    // };
-    
-    
-    
-    function endHTML() {
-        const bottomHTML = `
-
-                </div>
-            </div>
-        </body>
-        </html>`;
-    
-        fs.appendFile("./dist/MyTeam.html", bottomHTML, function(err) {
-            err ? console.error(err) : console.log("Your Team Profile is Ready!!!")
-        });
-    };
