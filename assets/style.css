@@ -29,8 +29,12 @@ body {
 }
 
 #icon {
-    height: 70px;
-    width: 70px;
+    height: 90px;
+    width: 90px;
     padding: 10px;
+    position: absolute;
+right: 0px;
+bottom: 0px;
+/* top: 0px; */
 }
 

@@ -201,16 +201,22 @@ promptQuestions();
                     if (employeeArray[i].officeNumber) {
                         object += `
                         <li class="list-group-item" id="office-number">OFFICE NUMBER: ${employeeArray[i].officeNumber}</li>
+                        <br><br>
+                        <img id="icon" src="../assets/images/noun_Brain.png">
                         `
                     } 
                     if (employeeArray[i].github) {
                         object += `
                         <li class="list-group-item" id="github">GITHUB USERNAME: ${employeeArray[i].github}</li>
+                        <br><br>
+                        <img id="icon" src="../assets/images/noun_vr goggles.png">
                         `
                     } 
                     if (employeeArray[i].school) {
                         object += `
                         <li class="list-group-item" id="school">SCHOOL: ${employeeArray[i].school}</li>
+                        <br><br>
+                        <img id="icon" src="../assets/images/noun_Robot.png">
                         `
                     }
 
