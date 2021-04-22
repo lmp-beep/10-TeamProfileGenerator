@@ -195,7 +195,7 @@ promptQuestions();
                                 <li class="list-group-item" id="name">${employeeArray[i].name}</li>
                                 <li class="list-group-item" id="role">${employeeArray[i].role}</li>
                                 <li class="list-group-item" id="id">EMPLOYEE ID: ${employeeArray[i].id}</li>
-                                <li class="list-group-item" id="email">EMAIL: ${employeeArray[i].email}</li>
+                                <li class="list-group-item" id="email">EMAIL: <a href="mailto:${employeeArray[i].email}">${employeeArray[i].email}</a></li>
                     `
 
                     if (employeeArray[i].officeNumber) {
@@ -207,7 +207,7 @@ promptQuestions();
                     } 
                     if (employeeArray[i].github) {
                         object += `
-                        <li class="list-group-item" id="github">GITHUB USERNAME: ${employeeArray[i].github}</li>
+                        <li class="list-group-item" id="github">GITHUB USERNAME: <a href="https://github.com/${employeeArray[i].github}">${employeeArray[i].github}</a></li>
                         <br><br>
                         <img id="icon" src="../assets/images/noun_vr goggles.png">
                         `
