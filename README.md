@@ -17,6 +17,7 @@ This is a command line application that runs with Node.js to dynamically generat
 >* [Installation](#installation)
 >* [Usage](#usage)
 >* [Instructional Video](#instructional-video)
+>* [Tests Video](#tests-video)
 >* [Example Image](#example-image)
 ***
 <br/><br/>
@@ -48,6 +49,11 @@ This is a command line application that runs with Node.js to dynamically generat
 
 ## Instructional Video
 ![](https://github.com/lmp-beep/10-TeamProfileGenerator/blob/a0cd9c501d9977006a407c849d6c90b2ea73454f/assets/videos/InstructionalVideo.gif)
+***
+<br/><br/>
+
+## Tests Video
+![PassedTests](https://user-images.githubusercontent.com/77073582/115927825-1070c980-a453-11eb-96df-24b0b121d85d.gif)
 ***
 <br/><br/>
 
