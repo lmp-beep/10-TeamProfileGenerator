@@ -47,7 +47,7 @@ This is a command line application that runs with Node.js to dynamically generat
 <br/><br/>
 
 ## Instructional Video
-
+![](https://github.com/lmp-beep/10-TeamProfileGenerator/blob/a0cd9c501d9977006a407c849d6c90b2ea73454f/assets/videos/InstructionalVideo.gif)
 ***
 <br/><br/>
 
