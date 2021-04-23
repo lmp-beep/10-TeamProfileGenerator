@@ -1,4 +1,4 @@
-<h1 align="center">README.md Generator </h1>
+<h1 align="center">Team Profile HTML Generator </h1>
 <h2 align="center">Using Node.js </h2>    
 
 <br/><br/>
