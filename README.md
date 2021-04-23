@@ -8,7 +8,7 @@
 </p>
 
 ## Description
-This is a command line application that runs with Node.js to dynamically generate an HTML file based on the user's inputs. 
+This is a command line application that runs with Node.js to dynamically generate an HTML file based on the user's inputs. The application takes information entered by the user and displays a summary for each person on a software engineering team. The rendered HTML output file will be located in the dist folder. 
 ***
 <br/><br/>
 
