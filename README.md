@@ -1,5 +1,45 @@
-# 10 Object-Oriented Programming: Team Profile Generator
+# 10 Team Profile Generator
+<p align="center">
+<img src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
+</p>
 
-orginally had generateHTML.js as a separate file that the index required, but when the initial questions prompt began and the HTML file was generated, the endHTML function would run first and the startHTML function would not run at all. So I moved the generate HTML functions into the index.js file, and it worked properly.
+## Description
+This is a command line application that runs with Node.js to dynamically generate an HTML file based on the user's inputs. 
+***
+<br/><br/>
 
-chose not to go the PATH route to generate the HTML because I don't fully understand it yet.
+## Table of Contents
+>* [License](#license)
+>* [Installation](#installation)
+>* [Usage](#usage)
+>* [Instructional Video](#instructional-video)
+>* [Example Image](#example-image)
+***
+<br/><br/>
+
+## Installation
+1. Download the files in this repo.
+  2. Open in Visual Studios Code.
+  3. Through the terminal in VS Code, run `npm install` to install the included dependencies.
+  ***
+
+<br/><br/>
+
+## Usage
+1. Through the terminal in VS Code, run `node index.js`.
+  2. The application uses `inquirer` to prompt you with a series of questions in the command line about your project.
+  3. Based on the answers you supply, the application will generate an HTML, and `fs.writeFile` is used to create a MyTeam.html file for your project.
+  4. Please watch the instructional video below.
+
+  ***
+<br/><br/>
+
+## Instructional Video
+
+***
+<br/><br/>
+
+## Example Image
+![ExampleImage](https://user-images.githubusercontent.com/77073582/115916608-0646cf00-a443-11eb-9b7b-d1c8fe728be7.png)
+
+***
