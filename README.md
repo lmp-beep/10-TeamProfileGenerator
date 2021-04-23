@@ -1,4 +1,8 @@
-# 10 Team Profile Generator
+<h1 align="center">README.md Generator </h1>
+<h2 align="center">Using Node.js </h2>    
+
+<br/><br/>
+
 <p align="center">
 <img src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
 </p>
@@ -23,6 +27,7 @@ This is a command line application that runs with Node.js to dynamically generat
   For more information, visit https://opensource.org/licenses/MIT.
 
   ***
+  <br/><br/>
 
 ## Installation
 1. Download the files in this repo.
