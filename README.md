@@ -17,6 +17,13 @@ This is a command line application that runs with Node.js to dynamically generat
 ***
 <br/><br/>
 
+## License
+  Copyright © Lisa Pessin 2021  
+  This application is covered under the MIT License.  
+  For more information, visit https://opensource.org/licenses/MIT.
+
+  ***
+
 ## Installation
 1. Download the files in this repo.
   2. Open in Visual Studios Code.
@@ -40,6 +47,6 @@ This is a command line application that runs with Node.js to dynamically generat
 <br/><br/>
 
 ## Example Image
-![ExampleImage](https://user-images.githubusercontent.com/77073582/115916608-0646cf00-a443-11eb-9b7b-d1c8fe728be7.png)
+![ExampleImage](https://user-images.githubusercontent.com/77073582/115917229-e6fc7180-a443-11eb-8636-bb8dbffb75f6.png)
 
 ***
